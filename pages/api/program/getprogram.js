@@ -6,16 +6,16 @@ export default async function (req, res) {
   {
     try
     {
-    const { prut } = req.query;
+    const { pname } = req.query;
     await cors(req, res)
-    const rutparse=parseInt(prut);
-    const getad=await FactoryLogic.getLogicAdvertiser().getAdvertiser(rutparse);
-    res.send(getad);
+
+    const getprogr=await FactoryLogic.getLogicProgram().getProgram(pname);
+    res.send(getprogr);
     }
     catch (error) {
       return res.status(500).json({
         status: "Error",
-        data: { msg: "Could not search advertiser", error:error.toString() }
+        data: { msg: "Could not search program", error:error.toString() }
       });
     }
   }
@@ -25,13 +25,13 @@ export default async function (req, res) {
     {
   const data = req.body;
   await cors(req, res)
-  const getad=await FactoryLogic.getLogicAdvertiser().getAdvertiserByNameLetter(data.exp);
+  const getad=await FactoryLogic.getLogicProgram().getProgramsByNameLetter(data.exp);
   res.send(getad);
     }
   catch (error) {
       return res.status(500).json({
         status: "Error",
-        data: { msg: "Could not search advertiser", error:error.toString() }
+        data: { msg: "Could not search program", error:error.toString() }
       });
     }
   }
