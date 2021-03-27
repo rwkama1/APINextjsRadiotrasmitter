@@ -9,7 +9,7 @@
   "dependencies": {
     "cors": "2.8.5",
     "next": "latest",
-    "radiotrasmitter": "^0.0.6",
+    "radiotrasmitter": "^0.0.9",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

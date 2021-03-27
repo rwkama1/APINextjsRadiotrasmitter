@@ -56,7 +56,7 @@ export default async function (req, res) {
     try
     {
   
-      const dtcamp=new ECampaign(data.title,"","",0,0,null,"",[]);
+    const dtcamp=new ECampaign(data.title,"","",0,0,null,"",[]);
     await FactoryLogic.getLogicCampaign().deleteCampaign(dtcamp);
 
     return res.status(200).json({ status: "Success" });
