@@ -6,17 +6,14 @@ export default async function (req, res) {
   {
     try
     {
-    const { pname } = req.query;
+      const { pname } = req.query;
     await cors(req, res)
 
     const getprogr=await FactoryLogic.getLogicProgram().getProgram(pname);
     res.send(getprogr);
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not search program", error:error.toString() }
-      });
+      return res.status(500).send("Could not search program "+error.message);
     }
   }
   if(req.method==="POST")
@@ -29,10 +26,7 @@ export default async function (req, res) {
   res.send(getad);
     }
   catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not search program", error:error.toString() }
-      });
+    return res.status(500).send("Could not search program "+error.mesage);
     }
   }
     return res.status(405).json({ msg: "Method not implemented"});

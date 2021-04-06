@@ -18,13 +18,10 @@ export default async function (req, res) {
     const data = req.body;
     const dtprogram=new Program(data.name,data.producer,data.type,data.price);
     await FactoryLogic.getLogicProgram().addProgram(dtprogram);
-    return res.status(200).json({ status: "Success" });
+    return res.status(200).send("Success");
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not add program", error: error.toString() }
-      });
+      return res.status(500).send("Could not add program: "+error.message);
     }
   }
   if(req.method==="PUT")
@@ -38,10 +35,7 @@ export default async function (req, res) {
     return res.status(200).json({ status: "Success" });
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not update program", error:error.toString() }
-      });
+      return res.status(500).send("Could not update program "+error.message);
     }
   }
   if(req.method==="DELETE")
@@ -55,10 +49,7 @@ export default async function (req, res) {
     return res.status(200).json({ status: "Success" });
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: {  error: error.toString() }
-      });
+      return res.status(500).send("Could not delete program "+error.message);
     }
   }
   }

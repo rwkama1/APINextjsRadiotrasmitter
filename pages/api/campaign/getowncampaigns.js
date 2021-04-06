@@ -13,10 +13,7 @@ export default async function (req, res) {
     res.send(getad);
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not search campaign", error:error.toString() }
-      });
+      return res.status(500).send("Could not search campaign "+error.message);
     }
   }
   if(req.method==="POST")
@@ -29,10 +26,7 @@ export default async function (req, res) {
   res.send(getad);
     }
   catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not search campaign", error:error.toString() }
-      });
+    return res.status(500).send("Could not search campaign "+error.message);
     }
   }
     return res.status(405).json({ msg: "Method not implemented"});

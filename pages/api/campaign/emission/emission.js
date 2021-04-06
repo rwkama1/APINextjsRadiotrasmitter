@@ -19,10 +19,7 @@ export default async function (req, res) {
     return res.status(200).json({ status: "Success" });
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not add emission", error: error.toString() }
-      });
+      return res.status(500).send("Could not add emmision "+error.message);
     }
   }
   return res.status(405).json({ msg: "Method not implemented"});
