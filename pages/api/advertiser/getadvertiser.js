@@ -6,17 +6,14 @@ export default async function (req, res) {
   {
     try
     {
-    const { prut } = req.query;
+      const data = req.body;
     await cors(req, res)
-    const rutparse=parseInt(prut);
+    const rutparse=data.rut;
     const getad=await FactoryLogic.getLogicAdvertiser().getAdvertiser(rutparse);
     res.send(getad);
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not search advertiser", error:error.toString() }
-      });
+      return res.status(500).send("Could not search advertiser "+error.message);
     }
   }
   if(req.method==="POST")
@@ -29,10 +26,7 @@ export default async function (req, res) {
   res.send(getad);
     }
   catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not search advertiser", error:error.toString() }
-      });
+    return res.status(500).send("Could not search advertiser "+error.message);
     }
   }
     return res.status(405).json({ msg: "Method not implemented"});

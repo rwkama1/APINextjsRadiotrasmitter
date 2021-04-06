@@ -6,10 +6,10 @@ export default async function (req, res) {
   {
     try
     {
-      const { pname } = req.query;
+      const data = req.body;
     await cors(req, res)
 
-    const getprogr=await FactoryLogic.getLogicProgram().getProgram(pname);
+    const getprogr=await FactoryLogic.getLogicProgram().getProgram(data.name);
     res.send(getprogr);
     }
     catch (error) {

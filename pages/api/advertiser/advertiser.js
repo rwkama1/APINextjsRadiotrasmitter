@@ -30,10 +30,7 @@ export default async function (req, res) {
     return res.status(200).json({ status: "Success" });
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not add advertiser", error: error.toString() }
-      });
+      return res.status(500).send("Could not add advertiser "+error.message);
     }
   }
   if(req.method==="PUT")
@@ -47,10 +44,7 @@ export default async function (req, res) {
     return res.status(200).json({ status: "Success" });
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: { msg: "Could not update advertiser", error:error.toString() }
-      });
+      return res.status(500).send("Could not update advertiser "+error.message);
     }
   }
   if(req.method==="DELETE")
@@ -65,10 +59,7 @@ export default async function (req, res) {
     return res.status(200).json({ status: "Success" });
     }
     catch (error) {
-      return res.status(500).json({
-        status: "Error",
-        data: {  error: error.toString() }
-      });
+      return res.status(500).send("Could not delete advertiser "+error.message);
     }
   }
   }
