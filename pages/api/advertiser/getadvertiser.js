@@ -6,9 +6,9 @@ export default async function (req, res) {
   {
     try
     {
-      const data = req.body;
+     const {prut} = req.query;
     await cors(req, res)
-    const rutparse=data.rut;
+    const rutparse=prut;
     const getad=await FactoryLogic.getLogicAdvertiser().getAdvertiser(rutparse);
   return res.send(getad);
     }

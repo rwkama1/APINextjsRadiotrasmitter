@@ -6,9 +6,9 @@ export default async function (req, res) {
 
   if(req.method==="GET")
   {
-    const data = req.body;
+    const {ptitle} = req.query;
     await cors(req, res)
-    const camp=await FactoryLogic.getLogicCampaign().getCampaign(data.title);
+    const camp=await FactoryLogic.getLogicCampaign().getCampaign(ptitle);
     return res.send(camp);
   }
 
