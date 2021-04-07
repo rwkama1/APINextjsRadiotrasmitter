@@ -7,7 +7,7 @@ export default async function (req, res) {
   {
     await cors(req, res)
     const list=await FactoryLogic.getLogicAdvertiser().getAdvertisers();
-    res.send(list);
+    return res.send(list);
   }
 
   //POSTMAN

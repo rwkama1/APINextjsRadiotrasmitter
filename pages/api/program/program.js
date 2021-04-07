@@ -7,7 +7,7 @@ export default async function (req, res) {
   {
     await cors(req, res)
     const list=await FactoryLogic.getLogicProgram().getPrograms();
-    res.send(list);
+    return res.send(list);
   }
 
   if(req.method==="POST")

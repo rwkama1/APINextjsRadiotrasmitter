@@ -10,7 +10,7 @@ export default async function (req, res) {
     await cors(req, res)
     
     const getad=await FactoryLogic.getLogicCampaign().getECampaigns();
-    res.send(getad);
+   return res.send(getad);
     }
     catch (error) {
       return res.status(500).send("Could not search campaign "+error.message);
@@ -23,7 +23,7 @@ export default async function (req, res) {
   const data = req.body;
   await cors(req, res)
   const getad=await FactoryLogic.getLogicCampaign().getECampaignByTitleLetter(data.exp);
-  res.send(getad);
+ return  res.send(getad);
     }
   catch (error) {
     return res.status(500).send("Could not search campaign "+error.message);

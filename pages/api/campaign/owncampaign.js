@@ -9,7 +9,7 @@ export default async function (req, res) {
     const data = req.body;
     await cors(req, res)
     const camp=await FactoryLogic.getLogicCampaign().getCampaign(data.title);
-    res.send(camp);
+   return res.send(camp);
   }
 
 

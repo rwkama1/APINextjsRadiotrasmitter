@@ -6,11 +6,10 @@ export default async function (req, res) {
   {
     try
     {
-      const data = req.body;
     await cors(req, res)
-
+    const data = req.body;
     const getprogr=await FactoryLogic.getLogicProgram().getProgram(data.name);
-    res.send(getprogr);
+    return res.send(getprogr);
     }
     catch (error) {
       return res.status(500).send("Could not search program "+error.message);

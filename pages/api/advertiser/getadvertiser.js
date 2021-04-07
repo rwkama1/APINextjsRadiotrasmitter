@@ -10,7 +10,7 @@ export default async function (req, res) {
     await cors(req, res)
     const rutparse=data.rut;
     const getad=await FactoryLogic.getLogicAdvertiser().getAdvertiser(rutparse);
-    res.send(getad);
+  return res.send(getad);
     }
     catch (error) {
       return res.status(500).send("Could not search advertiser "+error.message);
@@ -23,7 +23,7 @@ export default async function (req, res) {
   const data = req.body;
   await cors(req, res)
   const getad=await FactoryLogic.getLogicAdvertiser().getAdvertiserByNameLetter(data.exp);
-  res.send(getad);
+ return res.send(getad);
     }
   catch (error) {
     return res.status(500).send("Could not search advertiser "+error.message);
